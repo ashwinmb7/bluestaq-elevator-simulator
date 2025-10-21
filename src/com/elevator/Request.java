@@ -1,5 +1,7 @@
 package com.elevator;
 
+import com.elevator.Direction;
+
 public class Request {
     private final int fromFloor;
     private final int toFloor;

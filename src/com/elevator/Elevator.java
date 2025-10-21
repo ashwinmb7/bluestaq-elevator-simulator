@@ -137,13 +137,19 @@ public class Elevator {
     public int calculateCost(Request request){
         int distance = Math.abs(currentFloor - request.getFromFloor());
 
+        // IDLE elevators are most efficient - they can go anywhere
+        if (direction == Direction.IDLE) {
+            return distance;
+        }
+
+        // If moving in same direction and request is on the way
         if (direction == request.getDirection() && 
             ((direction == Direction.UP && request.getFromFloor() >= currentFloor) ||
              (direction == Direction.DOWN && request.getFromFloor() <= currentFloor))) {
             return distance;
         }
 
-
+        // Otherwise, elevator needs to complete current direction first
         return distance + 10;
     }
 
@@ -173,6 +179,10 @@ public class Elevator {
     
     public boolean hasDestination(){
         return !destinationFloors.isEmpty();
+    }
+
+    public int getDestinationCount(){
+        return destinationFloors.size();
     }
 
     @Override

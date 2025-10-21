@@ -57,10 +57,14 @@ public class ElevatorController {
             }
 
             int cost = elevator.calculateCost(request);
-
+        
             if(cost < lowestCost){
                 lowestCost = cost;
                 bestElevator = elevator;
+            } else if(cost == lowestCost && bestElevator != null){
+                if(elevator.getDestinationCount() < bestElevator.getDestinationCount()){
+                    bestElevator = elevator;
+                }
             }
         }
 
