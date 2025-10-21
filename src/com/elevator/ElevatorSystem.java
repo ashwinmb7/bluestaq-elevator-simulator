@@ -1,7 +1,9 @@
 package com.elevator;
 
 /**
- * Main class to run the elevator simulation
+ * Main class to run the Elevator System simulation.
+ * This class initializes the ElevatorController and simulates various elevator requests.
+ * @author Ashwin Mahesh
  */
 public class ElevatorSystem {
     
